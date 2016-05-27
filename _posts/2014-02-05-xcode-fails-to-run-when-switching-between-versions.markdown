@@ -18,12 +18,17 @@ I haven't posted in a while, but I'd really like to start getting back into it. 
 
 I was trying to switch between iOS 7 and iOS 7 beta 5 today, and I struggled to get the simulator to start on the iOS 7 beta 5. I rebooted and it worked, but then I couldn't get iOS 7 to work.
 
-Recap, to change between iOS versions:`
-sudo xcode-select --switch /Applications/Xcode.app/ # or whatever Xcode you want to use
-`
+Recap, to change between iOS versions:
 
-But sometimes, even when you close Xcode, its processes can hang around and interfere with the other version that you want to run. Use this command to take care of that:`
+{% highlight bash %}
+# /Applications/Xcode.app is the default, but you can use another
+sudo xcode-select --switch /Applications/Xcode.app/
+{% endhighlight %}
+
+But sometimes, even when you close Xcode, its processes can hang around and interfere with the other version that you want to run. Use this command to take care of that:
+
+{% highlight bash %}
 ps -ea | grep 'Xcode' | grep -v 'grep' | cut -d' ' -f 1 | xargs kill
-`
+{% endhighlight %}
 
 Have fun switching between stable and non-stable Xcode's!
